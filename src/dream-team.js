@@ -14,14 +14,24 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function createDreamTeam(members) {
-  console.log("members is " + members);
-  console.log("type is " + typeof members);
-  if (typeof(members) == null || typeof(members) == undefined || typeof(members) == 'number' || typeof(members) == Boolean ) {
+  console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+  console.log("input is: " + members)
+  if(members == null || !(members instanceof Object) || members == '[object Object]') {
     return false;
-  } else {
-  let result = members.map((word) => word[0]).join('');
-  console.log('result is ' + result);
   }
+  let result = [];
+  for (element of Object.values(members)) {
+    if (typeof(element) === 'string') {
+      element = element.split('').join('').trim();
+      result.push(element[0].toUpperCase());
+      console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+      console.log('result is: ' + result);
+      
+    }
+  };
+
+  result = result.sort();
+  return result.join('');
 }
 
 module.exports = {
