@@ -16,7 +16,7 @@ const { NotImplementedError } = require('../extensions/index.js');
 function createDreamTeam(members) {
   console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
   console.log("input is: " + members)
-  if(members == null || !(members instanceof Object) || members == '[object Object]') {
+  if(members == null || !(members instanceof Object) || !Array.isArray(members) ) {
     return false;
   }
   let result = [];
@@ -24,9 +24,8 @@ function createDreamTeam(members) {
     if (typeof(element) === 'string') {
       element = element.split('').join('').trim();
       result.push(element[0].toUpperCase());
-      console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+      console.log('~~~~~~~~~~~~!!!!!!!!~~~~~~~~~~~~~')
       console.log('result is: ' + result);
-      
     }
   };
 
